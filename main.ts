@@ -1,6 +1,6 @@
 //% weight=100 color=#0080ff icon="\uf1b2"
 
-namespace アソボットカー {
+namespace AsoBotCar {
     function lcdWriteRegister(reg: number, val: number) {
         let lcdAddr = 0x3e
         let cmd = (reg << 8) | val
