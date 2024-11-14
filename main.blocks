@@ -1,4 +1,1 @@
-<xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="pxt-on-start"></block>
-  <block type="device_forever"></block>
-</xml>
+<xml xmlns="https://developers.google.com/blockly/xml"><variables></variables><block type="pxt-on-start" id="Sq*!,4sox#Z[PidZwx17" x="0" y="0"><statement name="HANDLER"><block type="typescript_statement" id="@{nd.c^0)4{{PqZ.?OT:"><mutation xmlns="http://www.w3.org/1999/xhtml" line0="namespace hello {" line1="    //% block" line2="    export function helloWorld() {" line3="" line4="    }" line5="" line6="    // note that Caml casing yields lower case" line7="    // block text with spaces" line8="" line9="    //% block" line10="    export function camlCaseTwo() {" line11="" line12="    }" line13="}" numlines="14"></mutation></block></statement></block></xml>
