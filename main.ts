@@ -34,7 +34,7 @@ namespace AsoBotCar {
         // 入力値を0〜100に制限
         back_percent = Math.min(100, Math.max(0, back_percent));
 
-        pins.servoWritePin(AnalogPin.P8, 90 + 90 * (back_percent / 100));
+        servos.P0.run(90 + 90 * (back_percent / 100));
         pins.servoWritePin(AnalogPin.P15, 90 - 90 * (back_percent / 100));
     }
 
