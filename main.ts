@@ -29,8 +29,12 @@ namespace AsoBotCar {
     }
 
     //% block="|%number|％で後退"
-    export function back(back_speed: number) {
-        pins.servoWritePin(AnalogPin.P8, 90 + 90 * (back_speed / 100))
-        pins.servoWritePin(AnalogPin.P15, 90 - 90 * (back_speed / 100))
+    export function back(back_percent: number) {
+        // 入力値を0〜100に制限
+        back_percent = Math.min(100, Math.max(0, back_percent));
+
+        pins.servoWritePin(AnalogPin.P8, 90 + 90 * (back_percent / 100));
+        pins.servoWritePin(AnalogPin.P15, 90 - 90 * (back_percent / 100));
     }
+
 }
