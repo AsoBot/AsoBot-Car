@@ -1,5 +1,3 @@
-//% weight=100 color=#0080ff icon="\uf1b2"
-
 namespace AsoBotCar {
     function lcdWriteRegister(reg: number, val: number) {
         let lcdAddr = 0x3e
@@ -28,5 +26,11 @@ namespace AsoBotCar {
         for (let index = 0; index <= text.length; index++) {
             lcdWriteRegister(0x40, text.charCodeAt(index))
         }
+    }
+
+    //% block="後退"
+    export function 後退(後退速度: number) {
+        pins.servoWritePin(AnalogPin.P8, 90 + 90 * (後退速度 / 100))
+        pins.servoWritePin(AnalogPin.P15, 90 - 90 * (後退速度 / 100))
     }
 }
