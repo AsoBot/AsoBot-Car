@@ -29,7 +29,7 @@ namespace AsoBotCar {
     }
 
     //% block="移動|%number|％で前進"
-    //% back_percent.defl=50
+    //% forward_percent.defl=50
     export function forward(forward_percent: number = 50) {
         // 入力値を0〜100に制限
         forward_percent = Math.min(100, Math.max(0, forward_percent));
