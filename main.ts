@@ -29,7 +29,8 @@ namespace AsoBotCar {
     }
 
     //% block="|%number|％で後退"
-    export function back(back_percent: number) {
+    //% back_percent.defl=50
+    export function back(back_percent: number = 50) {
         // 入力値を0〜100に制限
         back_percent = Math.min(100, Math.max(0, back_percent));
 
