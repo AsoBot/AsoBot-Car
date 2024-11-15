@@ -29,8 +29,8 @@ namespace AsoBotCar {
     }
 
     //% block="後退"
-    export function 後退(後退速度: number) {
-        pins.servoWritePin(AnalogPin.P8, 90 + 90 * (後退速度 / 100))
-        pins.servoWritePin(AnalogPin.P15, 90 - 90 * (後退速度 / 100))
+    export function back(back_speed: number) {
+        pins.servoWritePin(AnalogPin.P8, 90 + 90 * (back_speed / 100))
+        pins.servoWritePin(AnalogPin.P15, 90 - 90 * (back_speed / 100))
     }
 }
