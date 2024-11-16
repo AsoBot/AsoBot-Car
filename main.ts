@@ -1,4 +1,4 @@
-//% color=#0080ff weight=100 icon="\f544" block="AsoBot-Car"
+//% color=#1299AF weight=100 icon="\f544" block="AsoBot-Car"
 namespace AsoBotCar {
     function lcdWriteRegister(reg: number, val: number) {
         let lcdAddr = 0x3e
