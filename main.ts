@@ -18,7 +18,7 @@ namespace asobotcar {
 
         // 左右のモーター速度を計算
         let leftSpeed = 90 + 90 * (back_percent / 100) + Adjust_percent;  // 左モーター
-        let rightSpeed = 90 - 90 * (back_percent / 100) - Adjust_percent; // 右モーター
+        let rightSpeed = 90 - 90 * (back_percent / 100) + Adjust_percent; // 右モーター
 
         // 範囲制限（モーターの値が0～180を超えないようにする）
         leftSpeed = Math.max(0, Math.min(180, leftSpeed));
@@ -38,7 +38,7 @@ namespace asobotcar {
 
         // 左右のモーター速度を計算
         let leftSpeed = 90 - 90 * (forward_percent / 100) + Adjust_percent;  // 左モーター
-        let rightSpeed = 90 + 90 * (forward_percent / 100) - Adjust_percent; // 右モーター
+        let rightSpeed = 90 + 90 * (forward_percent / 100) + Adjust_percent; // 右モーター
 
         // 範囲制限（モーターの値が0～180を超えないようにする）
         leftSpeed = Math.max(0, Math.min(180, leftSpeed));
