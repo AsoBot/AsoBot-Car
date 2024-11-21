@@ -49,11 +49,11 @@ namespace asobotcar {
         pins.servoWritePin(AnalogPin.P15, rightSpeed);
     }
 
-    //% block="調整量を%value|％に設定（-10～10）"
+    //% block="調整量を%value|％に設定（-50～50）"
     //% value.defl=0
     export function setAdjustPercent(value: number) {
         // 入力値を制限
-        Adjust_percent = Math.max(-10, Math.min(10, value));
+        Adjust_percent = Math.max(-50, Math.min(50, value));
     }
 
 }
