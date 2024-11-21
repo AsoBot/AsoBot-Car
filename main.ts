@@ -1,6 +1,16 @@
 //% color=#1299AF weight=100 icon="\f544" block="AsoBot-Car"
 namespace asobotcar {
 
+    export enum ServoChoice {
+        //% block="1"
+        servo1,
+        //% block="2"
+        servo2,
+        //% block="3"
+        servo3
+    }
+
+
     //% block="停止"
     export function stop() {
         pins.servoWritePin(AnalogPin.P8, 90);
