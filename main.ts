@@ -1,15 +1,8 @@
 //% color=#1299AF weight=100 icon="\f544" block="AsoBot-Car"
 namespace asobotcar {
 
-    export enum ServoChoice {
-        //% block="1"
-        servo1,
-        //% block="2"
-        servo2,
-        //% block="3"
-        servo3
-    }
-
+    // グローバル変数として調整量を宣言（初期値0）
+    let Adjust_percent: number = 0;
 
     //% block="停止"
     export function stop() {
@@ -17,24 +10,50 @@ namespace asobotcar {
         pins.servoWritePin(AnalogPin.P15, 90);
     }
 
-    //% block="移動|%number|％で後退"
+    //% block="移動|%back_percent|％で後退"
     //% back_percent.defl=50
     export function back(back_percent: number = 50) {
-        // 入力値を0〜100に制限
-        back_percent = Math.min(100, Math.max(0, back_percent));
+        // 入力値を制限
+        back_percent = Math.max(0, Math.min(100, back_percent));
 
-        pins.servoWritePin(AnalogPin.P8, 90 + 90 * (back_percent / 100));
-        pins.servoWritePin(AnalogPin.P15, 90 - 90 * (back_percent / 100));
+        // 左右のモーター速度を計算
+        let leftSpeed = 90 + 90 * (back_percent / 100) + Adjust_percent;  // 左モーター
+        let rightSpeed = 90 - 90 * (back_percent / 100) - Adjust_percent; // 右モーター
+
+        // 範囲制限（モーターの値が0～180を超えないようにする）
+        leftSpeed = Math.max(0, Math.min(180, leftSpeed));
+        rightSpeed = Math.max(0, Math.min(180, rightSpeed));
+
+        // サーボモーターに送信
+        pins.servoWritePin(AnalogPin.P8, leftSpeed);
+        pins.servoWritePin(AnalogPin.P15, rightSpeed);
     }
 
-    //% block="移動|%number|％で前進"
+
+    //% block="移動|%forward_percent|％で前進"
     //% forward_percent.defl=50
     export function forward(forward_percent: number = 50) {
-        // 入力値を0〜100に制限
-        forward_percent = Math.min(100, Math.max(0, forward_percent));
+        // 入力値を制限
+        forward_percent = Math.max(0, Math.min(100, forward_percent));
 
-        pins.servoWritePin(AnalogPin.P8, 90 - 90 * (forward_percent / 100));
-        pins.servoWritePin(AnalogPin.P15, 90 + 90 * (forward_percent / 100));
+        // 左右のモーター速度を計算
+        let leftSpeed = 90 - 90 * (forward_percent / 100) + Adjust_percent;  // 左モーター
+        let rightSpeed = 90 + 90 * (forward_percent / 100) - Adjust_percent; // 右モーター
+
+        // 範囲制限（モーターの値が0～180を超えないようにする）
+        leftSpeed = Math.max(0, Math.min(180, leftSpeed));
+        rightSpeed = Math.max(0, Math.min(180, rightSpeed));
+
+        // サーボモーターに送信
+        pins.servoWritePin(AnalogPin.P8, leftSpeed);
+        pins.servoWritePin(AnalogPin.P15, rightSpeed);
+    }
+
+    //% block="調整量を%value|％に設定（-10～10）"
+    //% value.defl=0
+    export function setAdjustPercent(value: number) {
+        // 入力値を制限
+        Adjust_percent = Math.max(-10, Math.min(10, value));
     }
 
 }
