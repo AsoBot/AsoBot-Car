@@ -36,15 +36,15 @@ namespace asobotcar {
         pins.servoWritePin(AnalogPin.P15, rightSpeed);
     }
 
-    //% block="右回転|%forward_percent|％（0～100）"
-    //% forward_percent.defl=50
-    export function right(forward_percent: number = 50) {
+    //% block="左旋回|%forward_percent|％の速度で|%turn_percent|％の左旋回"
+    //% forward_percent.defl=50 turn_percent.defl=50
+    export function turn_left(forward_percent: number = 50, turn_percent: number = 50) {
         // 入力値を制限
         forward_percent = Math.max(0, Math.min(100, forward_percent));
 
         // 左右のモーター速度を計算
-        let leftSpeed = 90 + 90 * (forward_percent + Adjust_percent) / 100;  // 左モーター
-        let rightSpeed = 90 + 90 * (forward_percent - Adjust_percent) / 100; // 右モーター
+        let leftSpeed = 90 - 90 * (forward_percent + Adjust_percent) / 100;  // 左モーター
+        let rightSpeed = 90 + 90 * (1 - turn_percent / 100) * (forward_percent - Adjust_percent) / 100; // 右モーター
 
         // 範囲制限（モーターの値が0～180を超えないようにする）
         leftSpeed = Math.max(0, Math.min(180, leftSpeed));
@@ -55,17 +55,15 @@ namespace asobotcar {
         pins.servoWritePin(AnalogPin.P15, rightSpeed);
     }
 
-
-
-    //% block="左旋回|%forward_percent|％の速度で|%turn_percent|％の左旋回"
-    //% forward_percent.defl=50 turn_percent.defl=50
-    export function turn_left(forward_percent: number = 50, turn_percent: number = 50) {
+    //% block="右回転|%forward_percent|％（0～100）"
+    //% forward_percent.defl=50
+    export function right(forward_percent: number = 50) {
         // 入力値を制限
         forward_percent = Math.max(0, Math.min(100, forward_percent));
 
         // 左右のモーター速度を計算
-        let leftSpeed = 90 - 90 * (forward_percent + Adjust_percent) / 100;  // 左モーター
-        let rightSpeed = 90 + 90 * (1 - turn_percent / 100) * (forward_percent - Adjust_percent) / 100; // 右モーター
+        let leftSpeed = 90 + 90 * (forward_percent + Adjust_percent) / 100;  // 左モーター
+        let rightSpeed = 90 + 90 * (forward_percent - Adjust_percent) / 100; // 右モーター
 
         // 範囲制限（モーターの値が0～180を超えないようにする）
         leftSpeed = Math.max(0, Math.min(180, leftSpeed));
@@ -132,7 +130,4 @@ namespace asobotcar {
         pins.servoWritePin(AnalogPin.P8, leftSpeed);
         pins.servoWritePin(AnalogPin.P15, rightSpeed);
     }
-
-
-
 }
