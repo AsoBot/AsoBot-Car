@@ -10,8 +10,8 @@ namespace asobotcar {
         pins.servoWritePin(AnalogPin.P15, 90);
     }
 
-    //% block="旋回|%forward_percent|％の速度で|%turn_percent|％の右旋回"
-    //% forward_percent.defl=50,turn_percent.defl=50
+    //% block="右旋回|%forward_percent|％の速度で|%turn_percent|％の右旋回"
+    //% forward_percent.defl=50 turn_percent.defl=50
     export function turn_right(forward_percent: number = 50, turn_percent: number = 50) {
         // 入力値を制限
         forward_percent = Math.max(0, Math.min(100, forward_percent));
