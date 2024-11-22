@@ -29,8 +29,7 @@ namespace asobotcar {
         pins.servoWritePin(AnalogPin.P15, rightSpeed);
     }
 
-
-    //% block="移動|%back_percent|％で後退"
+    //% block="後退|%back_percent|％（0～100）"
     //% back_percent.defl=50
     export function back(back_percent: number = 50) {
         // 入力値を制限
@@ -49,7 +48,7 @@ namespace asobotcar {
         pins.servoWritePin(AnalogPin.P15, rightSpeed);
     }
 
-    //% block="移動|%forward_percent|％で前進"
+    //% block="前進|%forward_percent|％（0～100）"
     //% forward_percent.defl=50
     export function forward(forward_percent: number = 50) {
         // 入力値を制限
@@ -68,7 +67,7 @@ namespace asobotcar {
         pins.servoWritePin(AnalogPin.P15, rightSpeed);
     }
 
-    //% block="調整量を%value|％に設定（-50～50）"
+    //% block="バランス調整%value|％（-50～50）"
     //% value.defl=0
     export function setAdjustPercent(value: number) {
         // 入力値を制限
