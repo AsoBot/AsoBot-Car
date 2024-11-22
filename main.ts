@@ -4,6 +4,13 @@ namespace asobotcar {
     // グローバル変数として調整量を宣言（初期値0）
     let Adjust_percent: number = 0;
 
+    //% block="バランス調整%value|％（-50～50）"
+    //% value.defl=0
+    export function setAdjustPercent(value: number) {
+        // 入力値を制限
+        Adjust_percent = Math.max(-50, Math.min(50, value));
+    }
+
     //% block="停止"
     export function stop() {
         pins.servoWritePin(AnalogPin.P8, 90);
@@ -86,11 +93,6 @@ namespace asobotcar {
         pins.servoWritePin(AnalogPin.P15, rightSpeed);
     }
 
-    //% block="バランス調整%value|％（-50～50）"
-    //% value.defl=0
-    export function setAdjustPercent(value: number) {
-        // 入力値を制限
-        Adjust_percent = Math.max(-50, Math.min(50, value));
-    }
+
 
 }
