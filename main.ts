@@ -4,7 +4,7 @@ namespace asobotcar {
     // グローバル変数として調整量を宣言（初期値0）
     let Adjust_percent: number = 0;
 
-    //% block="バランス調整%value|％右に補正：-50～50：左に補正）"
+    //% block="バランス調整%value|％（右補正：-50～50：左補正）"
     //% value.defl=0
     export function setAdjustPercent(value: number) {
         // 入力値を制限
