@@ -4,11 +4,11 @@ namespace asobotcar {
     // グローバル変数として調整量を宣言（初期値0）
     let Adjust_percent: number = 0;
 
-    //% block="バランス調整%value|％（右補正：-50～50：左補正）"
+    //% block="バランス調整%value|％（右補正：-10～10：左補正）"
     //% value.defl=0
     export function setAdjustPercent(value: number) {
         // 入力値を制限
-        Adjust_percent = Math.max(-50, Math.min(50, value));
+        Adjust_percent = Math.max(-10, Math.min(10, value));
     }
 
     //% block="停止"
@@ -119,8 +119,8 @@ namespace asobotcar {
         forward_percent = Math.max(0, Math.min(100, forward_percent));
 
         // 左右のモーター速度を計算
-        let leftSpeed = 90 - 90 * (forward_percent + Adjust_percent) / 100;  // 左モーター
-        let rightSpeed = 90 + 90 * (forward_percent - Adjust_percent) / 100; // 右モーター
+        let leftSpeed = 90 - (80 * forward_percent / 100) + Adjust_percent;  // 左モーター
+        let rightSpeed = 90 + (80 * forward_percent / 100) - Adjust_percent; // 右モーター
 
         // 範囲制限（モーターの値が0～180を超えないようにする）
         leftSpeed = Math.max(0, Math.min(180, leftSpeed));
