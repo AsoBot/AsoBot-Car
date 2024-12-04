@@ -1,4 +1,4 @@
-//% color=#1299AF weight=100 icon="\f118" block="AsoBot-Car"
+//% color=#1299AF weight=100 icon="\f5E4" block="AsoBot-Car"
 namespace asobotcar {
 
     // グローバル変数として調整量を宣言（初期値0）
@@ -43,16 +43,16 @@ namespace asobotcar {
         forward_percent = Math.max(0, Math.min(100, forward_percent));
 
         // 左右のモーター速度を計算
-        let leftSpeed = 90 - (80 * forward_percent / 100) * (forward_percent) + Adjust_percent;  // 左モーター
-        let rightSpeed = 90 + (80 * forward_percent / 100) + Adjust_percent; // 右モーター
+        let leftSpeed2 = 90 - (80 * forward_percent / 100) * (forward_percent) + Adjust_percent;  // 左モーター
+        let rightSpeed2 = 90 + (80 * forward_percent / 100) + Adjust_percent; // 右モーター
 
         // 範囲制限（モーターの値が0～180を超えないようにする）
-        leftSpeed = Math.max(0, Math.min(180, leftSpeed));
-        rightSpeed = Math.max(0, Math.min(180, rightSpeed));
+        leftSpeed2 = Math.max(0, Math.min(180, leftSpeed2));
+        rightSpeed2 = Math.max(0, Math.min(180, rightSpeed2));
 
         // サーボモーターに送信
-        pins.servoWritePin(AnalogPin.P8, leftSpeed);
-        pins.servoWritePin(AnalogPin.P15, rightSpeed);
+        pins.servoWritePin(AnalogPin.P8, leftSpeed2);
+        pins.servoWritePin(AnalogPin.P15, rightSpeed2);
     }
 
     //% block="右回転|%forward_percent|％（0～100）"
@@ -62,16 +62,16 @@ namespace asobotcar {
         forward_percent = Math.max(0, Math.min(100, forward_percent));
 
         // 左右のモーター速度を計算
-        let leftSpeed = 90 + (80 * forward_percent / 100) + Adjust_percent;  // 左モーター
-        let rightSpeed = 90 + (80 * forward_percent / 100) + Adjust_percent; // 右モーター
+        let leftSpeed3 = 90 + (80 * forward_percent / 100) + Adjust_percent;  // 左モーター
+        let rightSpeed3 = 90 + (80 * forward_percent / 100) + Adjust_percent; // 右モーター
 
         // 範囲制限（モーターの値が0～180を超えないようにする）
-        leftSpeed = Math.max(0, Math.min(180, leftSpeed));
-        rightSpeed = Math.max(0, Math.min(180, rightSpeed));
+        leftSpeed3 = Math.max(0, Math.min(180, leftSpeed3));
+        rightSpeed3 = Math.max(0, Math.min(180, rightSpeed3));
 
         // サーボモーターに送信
-        pins.servoWritePin(AnalogPin.P8, leftSpeed);
-        pins.servoWritePin(AnalogPin.P15, rightSpeed);
+        pins.servoWritePin(AnalogPin.P8, leftSpeed3);
+        pins.servoWritePin(AnalogPin.P15, rightSpeed3);
     }
 
     //% block="右旋回|%forward_percent|％の速度で|%turn_percent|％の右旋回"
@@ -81,16 +81,16 @@ namespace asobotcar {
         forward_percent = Math.max(0, Math.min(100, forward_percent));
 
         // 左右のモーター速度を計算
-        let leftSpeed = 90 - (80 * forward_percent / 100) + Adjust_percent;  // 左モーター
-        let rightSpeed = 90 + (80 * forward_percent / 100) * (forward_percent) + Adjust_percent; // 右モーター
+        let leftSpeed4 = 90 - (80 * forward_percent / 100) + Adjust_percent;  // 左モーター
+        let rightSpeed4 = 90 + (80 * forward_percent / 100) * (forward_percent) + Adjust_percent; // 右モーター
 
         // 範囲制限（モーターの値が0～180を超えないようにする）
-        leftSpeed = Math.max(0, Math.min(180, leftSpeed));
-        rightSpeed = Math.max(0, Math.min(180, rightSpeed));
+        leftSpeed4 = Math.max(0, Math.min(180, leftSpeed4));
+        rightSpeed4 = Math.max(0, Math.min(180, rightSpeed4));
 
         // サーボモーターに送信
-        pins.servoWritePin(AnalogPin.P8, leftSpeed);
-        pins.servoWritePin(AnalogPin.P15, rightSpeed);
+        pins.servoWritePin(AnalogPin.P8, leftSpeed4);
+        pins.servoWritePin(AnalogPin.P15, rightSpeed4);
     }
 
     //% block="後退|%back_percent|％（0～100）"
@@ -100,16 +100,16 @@ namespace asobotcar {
         back_percent = Math.max(0, Math.min(100, back_percent));
 
         // 左右のモーター速度を計算
-        let leftSpeed = 90 + (80 * back_percent / 100) - Adjust_percent;  // 左モーター
-        let rightSpeed = 90 - (80 * back_percent / 100) - Adjust_percent; // 右モーター
+        let leftSpeed5 = 90 + (80 * back_percent / 100) - Adjust_percent;  // 左モーター
+        let rightSpeed5 = 90 - (80 * back_percent / 100) - Adjust_percent; // 右モーター
 
         // 範囲制限（モーターの値が0～180を超えないようにする）
-        leftSpeed = Math.max(0, Math.min(180, leftSpeed));
-        rightSpeed = Math.max(0, Math.min(180, rightSpeed));
+        leftSpeed5 = Math.max(0, Math.min(180, leftSpeed5));
+        rightSpeed5 = Math.max(0, Math.min(180, rightSpeed5));
 
         // サーボモーターに送信
-        pins.servoWritePin(AnalogPin.P8, leftSpeed);
-        pins.servoWritePin(AnalogPin.P15, rightSpeed);
+        pins.servoWritePin(AnalogPin.P8, leftSpeed5);
+        pins.servoWritePin(AnalogPin.P15, rightSpeed5);
     }
 
     //% block="前進|%forward_percent|％（0～100）"
@@ -119,15 +119,15 @@ namespace asobotcar {
         forward_percent = Math.max(0, Math.min(100, forward_percent));
 
         // 左右のモーター速度を計算
-        let leftSpeed = 90 - (80 * forward_percent / 100) + Adjust_percent;  // 左モーター
-        let rightSpeed = 90 + (80 * forward_percent / 100) + Adjust_percent; // 右モーター
+        let leftSpeed6 = 90 - (80 * forward_percent / 100) + Adjust_percent;  // 左モーター
+        let rightSpeed6 = 90 + (80 * forward_percent / 100) + Adjust_percent; // 右モーター
 
         // 範囲制限（モーターの値が0～180を超えないようにする）
-        leftSpeed = Math.max(0, Math.min(180, leftSpeed));
-        rightSpeed = Math.max(0, Math.min(180, rightSpeed));
+        leftSpeed6 = Math.max(0, Math.min(180, leftSpeed6));
+        rightSpeed6 = Math.max(0, Math.min(180, rightSpeed6));
 
         // サーボモーターに送信
-        pins.servoWritePin(AnalogPin.P8, leftSpeed);
-        pins.servoWritePin(AnalogPin.P15, rightSpeed);
+        pins.servoWritePin(AnalogPin.P8, leftSpeed6);
+        pins.servoWritePin(AnalogPin.P15, rightSpeed6);
     }
 }
