@@ -1,4 +1,4 @@
-//% color=#1299AF weight=100 icon="\f25b" block="AsoBot-Car"
+//% color=#1299AF weight=100 icon="\f118" block="AsoBot-Car"
 namespace asobotcar {
 
     // グローバル変数として調整量を宣言（初期値0）
